@@ -1,22 +1,24 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
-export default function HeroActions() {
+interface HeroActionsProps {
+  onOpenSortiment?: () => void;
+}
+
+export default function HeroActions({ onOpenSortiment }: HeroActionsProps) {
   return (
     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-      {/* Primary CTA */}
-      <a
-        href="https://autoweltschweiz.ch/fahrzeuge/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 rounded-xs bg-[#F4F0E9] px-6 py-3.5 text-xs font-semibold uppercase tracking-widest text-[#0B0D10] transition-colors hover:bg-white"
-        aria-label="Explore Vehicles on official Autowelt Schweiz inventory"
+      {/* Primary CTA: Open Interactive Sortiment Showcase */}
+      <button
+        onClick={onOpenSortiment}
+        className="inline-flex items-center justify-center gap-2 rounded-xs bg-[#F4F0E9] px-6 py-3.5 text-xs font-semibold uppercase tracking-widest text-[#0B0D10] transition-all hover:bg-white hover:shadow-lg cursor-pointer"
+        aria-label="Fahrzeug Sortiment & Allokationen öffnen"
       >
-        <span>EXPLORE VEHICLES</span>
+        <span>EXPLORE SORTIMENT</span>
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-      </a>
+      </button>
 
-      {/* Secondary CTA */}
+      {/* Secondary CTA: Official Private Viewing */}
       <a
         href="https://www.autoweltschweiz.ch/kontakt/"
         target="_blank"

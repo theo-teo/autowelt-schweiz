@@ -1,53 +1,64 @@
 # 📋 ASSET REQUIREMENTS SPECIFICATION — AUTOWELT SCHWEIZ PITCH
-**Document Version:** 1.0.0  
-**Project:** Autowelt Schweiz AG · Concept Demo Hero  
+**Document Version:** 2.0.0 (Scrollytelling & AI Motion Contract)  
+**Project:** Autowelt Schweiz AG · Concept Demo & Atelier Experience  
+**Showroom:** Badenerstrasse 567, 8048 Zürich · **Atelier:** Lindbergh-Allee 1, 8152 Glattpark  
 **Author:** Principal Frontend Engineer & Creative Technologist  
-**Status:** Creative Brief / Production Contract (Gate 1)
+**Status:** Approved Master Contract (Gates 1 & 2)
 
 ---
 
 ## 1. LEGAL, RIGHTS & COMMERCIAL PROVENANCE
 - **Source Rights:** All hero media must carry formal written commercial licensing or direct manufacturer/client release for digital pitch and public web deployment.
-- **Brand Representation:** Do NOT use scraped, hotlinked, or unauthorized imagery of Ferrari, Lamborghini, McLaren, Porsche, or Bugatti.
-- **Stock Integrity:** No invented vehicle prices, fabricated VINs, or fictional allocation stock. All public-facing vehicle references must link exclusively to official Autowelt Schweiz inventory channels (`https://autoweltschweiz.ch/fahrzeuge/`).
+- **Brand Representation:** Do NOT use scraped or unauthorized low-res imagery. Use the genuine downloaded Swiss Atelier assets located in `/public/media/inventory/` or approved AI-generated commercial photography.
+- **Stock Integrity:** No invented vehicle prices or fake VINs. All vehicles link directly to verified official Autowelt Schweiz portfolio pages (`https://autoweltschweiz.ch/fahrzeuge/`).
 
 ---
 
-## 2. CINEMATOGRAPHIC SCENE BRIEF (12-SECOND CAMERA MOVE)
+## 2. SCROLL STORYTELLING CHOREOGRAPHY (6 PHASES)
 
-### Setting
-- **Location:** Private automotive circuit or architectural modern pit lane (e.g., Circuit Paul Ricard, Bilster Berg, or Swiss private proving ground facility).
-- **Architecture:** Smooth concrete, restrained architectural pit garages, clean track curbs, open negative space above horizon line.
-- **Atmosphere:** Natural, restrained lighting. Never generic neon tunnels, artificial digital confetti, or over-saturated cyber aesthetic.
+### Phase 1: High Alpine Establishing Shot (0.0s – 3.0s)
+- **Setting:** Swiss private proving ground surrounded by alpine peaks under crisp morning daylight or twilight blue hour.
+- **Camera:** High 3/4 drone glide (30m altitude) descending smoothly toward the circuit finish straight.
 
-### Vehicle Lineup (Three Vehicles)
-1. **Vehicle 1 (Left / Fore):** Mid-engine sports/supercar (Curated concept color: Deep Liquid Red).
-2. **Vehicle 2 (Center / Hero):** Aerodynamic high-performance supercar (Curated concept color: Vibrant Papaya Orange).
-3. **Vehicle 3 (Right / Flank):** Grand touring / muscular supercar (Curated concept color: Metallic Graphite Grey).
+### Phase 2: The Multi-Car Lineup Hero (3.0s – 6.0s)
+- **Lineup:**
+  1. **Lamborghini Aventador SVJ Roadster** (Bianco Monocerus) in 3/4 foreground.
+  2. **Porsche 911 GT3 RS** (Graphite / Carbon swan-neck wing) beside it.
+  3. **Ferrari SF90 Stradale** (Rosso Corsa) with illuminated LED daylight ribbons.
+  4. **Bugatti / Koenigsegg** hypercar silhouette by the minimalist concrete pit pavilion.
 
-### Camera Path & Choreography
-- **0.0s – 3.0s:** High 3/4 aerial establishing shot (drone altitude ~25–30m), smooth forward glide along circuit axis.
-- **3.0s – 6.0s:** Controlled descending crane arc down to eye/bumper level in front of the vehicle lineup; vehicle forms remain crisp and readable.
-- **6.0s – 9.0s:** Measured lateral arc along vehicle flanks toward rear quarter, revealing rear light signatures and aero diffuser lines.
-- **9.0s – 12.0s:** Settles on a balanced, stable wide editorial lock-off shot with clean negative space for typography, smoothly looping back to the head of the sequence without visual jump cuts.
+### Phase 3: Glattpark Atelier & Hofele Bespoke (6.0s – 9.0s)
+- **Subject:** Smooth lateral arc highlighting carbon aero diffusers, forged wheels, and Hofele HG63 luxury styling.
+- **Lighting:** Matched Day (golden sun rim light) and Night (laser headlights + interior architectural glow).
 
----
+### Phase 4: Curated Inventory Vault (Interactive Drawer)
+- **Interaction:** Fullscreen translucent drawer featuring the 9 official brands:
+  - Porsche, Ferrari, Lamborghini, Bugatti, Koenigsegg, Pagani, Mercedes-Benz/Hofele, Aston Martin, Bentley.
 
-## 3. TECHNICAL DELIVERABLES MATRIX
-
-| Asset Role | Filename | Format | Resolution | Aspect Ratio | Color / Codec |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Desktop Day Video** | `hero-day-desktop.mp4` | MP4 (H.264 / AAC silent) | 2560 × 1440 (or 1920 × 1080) | 16:9 | Rec.709, 24/30 fps, < 14 MB |
-| **Desktop Night Video** | `hero-night-desktop.mp4` | MP4 (H.264 / AAC silent) | 2560 × 1440 (or 1920 × 1080) | 16:9 | Physical headlights on, track floodlights, < 14 MB |
-| **Mobile Day Video** | `hero-day-mobile.mp4` | MP4 (H.264 / AAC silent) | 1080 × 1920 | 9:16 | Vertical centered crop, < 8 MB |
-| **Mobile Night Video** | `hero-night-mobile.mp4` | MP4 (H.264 / AAC silent) | 1080 × 1920 | 9:16 | Vertical centered crop, < 8 MB |
-| **Desktop Day Poster** | `hero-day-poster.webp` | WebP | 2560 × 1440 | 16:9 | High quality (q85), < 250 KB |
-| **Desktop Night Poster**| `hero-night-poster.webp` | WebP | 2560 × 1440 | 16:9 | High quality (q85), < 250 KB |
-| **Mobile Day Poster** | `hero-day-poster-mobile.webp` | WebP | 1080 × 1920 | 9:16 | High quality (q85), < 150 KB |
-| **Mobile Night Poster** | `hero-night-poster-mobile.webp` | WebP | 1080 × 1920 | 9:16 | High quality (q85), < 150 KB |
+### Phase 5 & 6: Sound & Private Concierge
+- **Audio:** Spatial V12 engine acoustics, wind, and mechanical chronograph clicks.
+- **Conversion:** Direct telephone connection (`+41 44 888 55 77`) and Private Viewing VIP booking.
 
 ---
 
-## 4. DAY / NIGHT SYNCHRONIZATION REQUIREMENT
-- **Rule:** The Day and Night video exports MUST be generated from the exact same 3D scene/camera path with **identical duration, frame rate, camera transform keyframes, and vehicle positioning**.
-- **Execution:** Night mode is NOT a client-side blue CSS filter. It must render authentic physical lighting changes: illuminated LED headlight beams cutting across tarmac, reflective track markers, instrument cluster glows, and ambient twilight skydome.
+## 3. HIGGSFIELD AI KOPPLUNGSSPEZIFIKATION
+- **API Token:** `HIGGSFIELD_API_KEY` (in `.env.local`).
+- **Endpoint:** `https://api.higgsfield.ai/v1/generate/video`
+- **Engine:** `higgsfield-dop-v2` (Director of Photography Camera Control).
+- **Camera Trajectory Matrix:**
+  - `t=0s`: `[x: 0, y: 25, z: -40, pitch: -25]` (Aerial Establishing)
+  - `t=4s`: `[x: 0, y: 1.2, z: -12, pitch: -4]` (Eye Level Hero Front)
+  - `t=8s`: `[x: 8, y: 1.0, z: -4, pitch: 0]` (Flank Arc / Aero Diffuser)
+  - `t=12s`: `[x: 0, y: 1.5, z: -10, pitch: -5]` (Loop Lock-off)
+
+---
+
+## 4. CURRENT DELIVERABLES IN REPOSITORY
+
+| Asset Role | Filename | Format | Source / Generation |
+| :--- | :--- | :--- | :--- |
+| **Day Lineup Video** | `/public/media/hero-day-desktop.mp4` | MP4 (H.264, 60fps) | 12s Camera Glide, Multi-Car Alpine Lineup |
+| **Night Lineup Video** | `/public/media/hero-night-desktop.mp4` | MP4 (H.264, 60fps) | 12s Camera Glide, Matched Night LEDs |
+| **Day Poster** | `/public/media/hero-day-poster.jpg` | High-res JPEG | Ultra-clean Alpine Daylight |
+| **Night Poster** | `/public/media/hero-night-poster.jpg` | High-res JPEG | Charcoal & Laser Headlights |
+| **Inventory Assets** | `/public/media/inventory/*.jpg` | JPEGs (13 files) | Official Autowelt Schweiz Photography |
