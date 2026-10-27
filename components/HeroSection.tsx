@@ -227,7 +227,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mt-3 font-display-hyper text-[2.2rem] sm:text-5xl lg:text-[4.4rem] font-black uppercase leading-[0.98] tracking-tight text-white"
+              className="mt-3 font-display-hyper text-[1.75rem] min-[375px]:text-[1.95rem] sm:text-5xl lg:text-[4.4rem] font-black uppercase leading-[1.0] tracking-tight text-white"
             >
               DIE SCHNELLSTEN <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-[#0044FF] to-[#D1D5DB]">
