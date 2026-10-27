@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, ArrowUpRight } from "lucide-react";
+import { ChevronDown, ArrowUpRight, Menu, X } from "lucide-react";
 import DayNightToggle from "@/components/DayNightToggle";
 
 const BRANDS = [
@@ -14,6 +14,7 @@ const BRANDS = [
   { name: "Aston Martin", href: "https://www.autoweltschweiz.ch/aston-martin/" },
   { name: "Bentley", href: "https://www.autoweltschweiz.ch/bentley/" },
   { name: "Mercedes-Benz", href: "https://www.autoweltschweiz.ch/mercedes-benz/" },
+  { name: "McLaren & Rolls-Royce", href: "https://www.autoweltschweiz.ch/fahrzeuge/" },
 ];
 
 interface SiteHeaderProps {
@@ -23,13 +24,14 @@ interface SiteHeaderProps {
 
 export default function SiteHeader({ mode, onToggleMode }: SiteHeaderProps) {
   const [brandsOpen, setBrandsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#F4F0E9]/[0.08] bg-[#0B0D10]/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-[#F4F0E9]/[0.08] bg-[#0B0D10]/90 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8">
         
         {/* Brand Group */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <a
             href="https://www.autoweltschweiz.ch/"
             className="flex flex-col text-left transition-opacity hover:opacity-80"
@@ -43,11 +45,11 @@ export default function SiteHeader({ mode, onToggleMode }: SiteHeaderProps) {
             </span>
           </a>
 
-          {/* Mercedes-Benz Inspired Clean Brand Dropdown */}
-          <div className="relative hidden lg:block">
+          {/* Mercedes-Benz Inspired Clean Brand Dropdown (Desktop) */}
+          <div className="relative hidden md:block">
             <button
               onClick={() => setBrandsOpen(!brandsOpen)}
-              onBlur={() => setTimeout(() => setBrandsOpen(false), 200)}
+              onBlur={() => setTimeout(() => setBrandsOpen(false), 250)}
               className="inline-flex items-center gap-1.5 rounded-xs border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-mono-tag uppercase tracking-wider text-[#F4F0E9]/80 transition-colors hover:border-[#C3AD90] hover:text-[#F4F0E9]"
               aria-expanded={brandsOpen}
               aria-label="Marken Portfolio Auswählen"
@@ -57,9 +59,9 @@ export default function SiteHeader({ mode, onToggleMode }: SiteHeaderProps) {
             </button>
 
             {brandsOpen && (
-              <div className="absolute left-0 top-full mt-2 w-56 rounded-xs border border-[#F4F0E9]/15 bg-[#0B0D10]/95 p-2 shadow-2xl backdrop-blur-xl">
-                <div className="px-2.5 py-1.5 text-[9px] font-mono-tag uppercase tracking-widest text-[#C3AD90]">
-                  Offizielles Markenportfolio
+              <div className="absolute left-0 top-full mt-2 w-64 rounded-xs border border-[#F4F0E9]/15 bg-[#0B0D10]/98 p-2 shadow-2xl backdrop-blur-xl z-50">
+                <div className="px-2.5 py-1.5 text-[9.5px] font-mono-tag uppercase tracking-widest text-[#C3AD90] border-b border-white/10">
+                  Offizielle Marken & Allokationen
                 </div>
                 <div className="mt-1 divide-y divide-white/5">
                   {BRANDS.map((brand) => (
@@ -81,9 +83,9 @@ export default function SiteHeader({ mode, onToggleMode }: SiteHeaderProps) {
         </div>
 
         {/* Center/Right Nav Links & Controls */}
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-5">
           <nav
-            className="hidden md:flex items-center gap-6 text-xs font-mono-tag uppercase tracking-wider text-[#F4F0E9]/70"
+            className="hidden lg:flex items-center gap-6 text-xs font-mono-tag uppercase tracking-wider text-[#F4F0E9]/70"
             aria-label="Main Navigation"
           >
             <a
@@ -109,14 +111,47 @@ export default function SiteHeader({ mode, onToggleMode }: SiteHeaderProps) {
           {/* Day / Night Mood Switcher */}
           <DayNightToggle mode={mode} onToggle={onToggleMode} />
 
-          {/* Persistent Independent Concept Demo Badge */}
-          <div className="hidden sm:inline-flex items-center gap-1.5 rounded-xs border border-[#C3AD90]/30 bg-[#C3AD90]/10 px-2.5 py-1 text-[9px] font-mono-tag uppercase tracking-wider text-[#C3AD90]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#C3AD90]" />
-            <span>CONCEPT DEMO</span>
-          </div>
+          {/* Mobile Menu Toggle Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden flex items-center justify-center h-8 w-8 rounded-xs border border-white/10 text-white/70 hover:text-white"
+            aria-label="Toggle Mobile Menu"
+          >
+            {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
         </div>
 
       </div>
+
+      {/* Mobile Drawer Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-[#0B0D10]/98 px-5 py-4 divide-y divide-white/10">
+          <div className="py-2 space-y-1">
+            <p className="font-mono-tag text-[9.5px] uppercase tracking-widest text-[#C3AD90]">
+              Markenportfolio
+            </p>
+            <div className="grid grid-cols-2 gap-2 pt-2">
+              {BRANDS.map((brand) => (
+                <a
+                  key={brand.name}
+                  href={brand.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xs border border-white/5 bg-white/[0.02] px-2.5 py-1.5 text-[11px] font-mono-tag text-[#F4F0E9]/80 hover:border-[#C3AD90] hover:text-[#C3AD90]"
+                >
+                  {brand.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="pt-3 pb-1 flex justify-between items-center text-xs font-mono-tag uppercase text-white/60">
+            <a href="https://autoweltschweiz.ch/fahrzeuge/" className="hover:text-white">Fahrzeuge</a>
+            <a href="https://www.autoweltschweiz.ch/ueberuns/" className="hover:text-white">Über uns</a>
+            <a href="https://www.autoweltschweiz.ch/kontakt/" className="hover:text-white">Kontakt</a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
